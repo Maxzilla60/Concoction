@@ -1,10 +1,12 @@
 # Concoction :cocktail:
-Generate a **Chef** program that outputs given string, as a means of creative _encryption_. :egg:
+Generate a **Chef** program that outputs given string, as a means of _creative encryption_. :egg:
 
 ## What:question:
 This script will take a string and generate a program (`concoction.chef`) written in the [Chef](http://www.dangermouse.net/esoteric/chef.html) esoteric programming language.
 
-Its use is suggested to be a creative way of encrypting a string. The way to "decrypt" it is to use a [Chef interpreter](https://github.com/mpw96/perl-Acme-Chef) to run the generated program... or you could try and figure out the program on your own, if you want. :sweat_smile:
+Since Chef is a fairly obscure language that, to those that aren't familiar with it, doesn't really look like code, its use is suggested to be a creative way of encrypting a string.
+
+The way to "decrypt" it is to use a [Chef interpreter](https://github.com/mpw96/perl-Acme-Chef) to run the generated program... or you could try and figure out the program on your own, if you want. :sweat_smile:
 
 ## How:question:
 Generating:
