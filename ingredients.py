@@ -1,3 +1,5 @@
+# Dictionary of ASCII characters and a creative name for each of them
+# TODO: give the items that don't have a # at the end a creative name!
 ingredients_dictionary = {
 	#'\n' : 'new lines', #
 	' ' : 'air', #
