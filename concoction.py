@@ -23,7 +23,7 @@ for c in input:
 	ingredients[c] = ingredients_dictionary[c]
 
 print("Writing ingredients...")
-measures = ["ml", "l", "dashes", "cups", "teaspoons", "tablespoons"] # different measures to randomize
+measures = ["ml", "l", "dashes", "cups"] # different measures to randomize
 items = list(ingredients.items()) # convert ingredients to list
 random.shuffle(items) # shuffle this list
 # Go through the ingredients and print 'em to the file:
