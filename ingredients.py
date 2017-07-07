@@ -41,7 +41,7 @@ ingredients_dictionary = {
 	'D' : 'D',
 	'E' : 'egg whites', #
 	'F' : 'baking powder',
-	'G' : 'G',
+	'G' : 'tea', #
 	'H' : 'H',
 	'I' : 'paint', #
 	'J' : 'fruit juice', #
@@ -73,7 +73,7 @@ ingredients_dictionary = {
 	'd' : 'd',
 	'e' : 'egg yolk', #
 	'f' : 'flour',
-	'g' : 'g',
+	'g' : 'green tea', #
 	'h' : 'honey', #
 	'i' : 'ink', #
 	'j' : 'orange juice', #
