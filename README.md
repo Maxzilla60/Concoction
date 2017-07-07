@@ -30,5 +30,6 @@ Obviously, do **not** attempt to create and drink the generated concoctions! :wo
 
 ### TODO :clipboard:
 - [ ] **More creative names for [`ingredients.py`](https://github.com/Maxzilla60/Concoction/blob/master/ingredients.py)!**
+- [ ] Also get dry ingredients into the mix!
 - [ ] Support files as input?
 - [ ] Web version?
