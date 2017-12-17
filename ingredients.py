@@ -1,15 +1,16 @@
 # Dictionary of ASCII characters and a creative name for each of them
 # TODO: give the items that don't have a # at the end a creative name!
+# Regex: .*(?<!#)$
 ingredients_dictionary = {
 	#'\n' : 'new lines', #
 	' ' : 'air', #
 	'!' : 'gunpowder', #
-	'"' : 'quotes',
-	'#' : 'hashtags',
+	'"' : 'ice', #
+	'#' : 'hashbrowns', #
 	'$' : 'gold', #
-	'%' : 'percents',
+	'%' : 'sunscreen', #
 	'&' : 'glue', #
-	"'" : 'apostrophes',
+	"'" : 'apple juice', #
 	'(' : 'salt', #
 	')' : 'pepper', #
 	'*' : 'sprinkles', #
@@ -17,10 +18,10 @@ ingredients_dictionary = {
 	',' : 'food coloring', #
 	'-' : 'hyphens',
 	'.' : 'bread crumbs', #
-	'/' : 'slashes',
-	'0' : 'zeroes',
-	'1' : 'ones',
-	'2' : 'twos',
+	'/' : 'laxative', #
+	'0' : 'olives', #
+	'1' : 'eggnog', #
+	'2' : 'cayenne pepper', #
 	'3' : 'threes',
 	'4' : 'fours',
 	'5' : 'fives',
@@ -30,17 +31,17 @@ ingredients_dictionary = {
 	'9' : 'nines',
 	':' : 'hemorrhoids creme', #
 	';' : 'toothpaste', #
-	'<' : 'less-thans',
-	'=' : 'equals',
-	'>' : 'more-thans',
+	'<' : 'blood', #
+	'=' : 'sweat', #
+	'>' : 'tears', #
 	'?' : 'stuff', #
-	'@' : 'Ats',
-	'A' : 'sparkling water', #
+	'@' : 'aspirin', #
+	'A' : 'carbonated water', #
 	'B' : 'rum', #
 	'C' : 'coffee', #
-	'D' : 'D',
+	'D' : 'dirt', #
 	'E' : 'egg whites', #
-	'F' : 'baking powder',
+	'F' : 'baking powder', #
 	'G' : 'tea', #
 	'H' : 'H',
 	'I' : 'paint', #
@@ -52,39 +53,39 @@ ingredients_dictionary = {
 	'O' : 'olive oil', #
 	'P' : 'Coca-Cola', #
 	'Q' : 'Q',
-	'R' : 'R',
+	'R' : 'cinnamon', #
 	'S' : 'soap', #
 	'T' : 'tomato juice', #
-	'U' : 'U',
-	'V' : 'V',
+	'U' : 'uranium', #
+	'V' : 'vodka', #
 	'W' : 'red wine', #
-	'X' : 'X',
+	'X' : 'whisky', #
 	'Y' : 'cream cheese', #
-	'Z' : 'Z',
+	'Z' : 'lemon zest', #
 	'[' : 'open brackets',
-	'\\' : 'backslashes',
+	'\\' : 'dust', #
 	']' : 'closed brackets',
-	'^' : 'circumflexes',
+	'^' : 'champagne', #
 	'_' : 'underscores',
 	'`' : 'grave accents',
 	'a' : 'water', #
 	'b' : 'beer', #
 	'c' : 'chocolate', #
-	'd' : 'd',
+	'd' : 'fertilizer', #
 	'e' : 'egg yolk', #
-	'f' : 'flour',
+	'f' : 'flour', #
 	'g' : 'green tea', #
 	'h' : 'honey', #
-	'i' : 'ink', #
+	'i' : 'squid ink', #
 	'j' : 'orange juice', #
 	'k' : 'k',
 	'l' : 'lemonade', #
 	'm' : 'milk', #
 	'n' : 'n',
-	'o' : 'oil', #
+	'o' : 'sunflower oil', #
 	'p' : 'Pepsi', #
-	'q' : 'q',
-	'r' : 'r',
+	'q' : 'parmesan', #
+	'r' : 'cough syrup', #
 	's' : 'sugar', #
 	't' : 'tabasco', #
 	'u' : 'u',
@@ -92,8 +93,8 @@ ingredients_dictionary = {
 	'w' : 'white wine', #
 	'x' : 'x',
 	'y' : 'yoghurt', #
-	'z' : 'z',
+	'z' : 'tonic water', #
 	'{' : 'ketchup', #
-	'|' : 'pipes', #
+	'|' : 'mustard', #
 	'}' : 'mayonnaise' #
 }
