@@ -16,19 +16,19 @@ ingredients_dictionary = {
 	'*' : 'sprinkles', #
 	'+' : 'plusses',
 	',' : 'food coloring', #
-	'-' : 'hyphens',
+	'-' : 'hyphens', #
 	'.' : 'bread crumbs', #
 	'/' : 'laxative', #
 	'0' : 'olives', #
 	'1' : 'eggnog', #
 	'2' : 'cayenne pepper', #
-	'3' : 'threes',
-	'4' : 'fours',
-	'5' : 'fives',
-	'6' : 'sixes',
+	'3' : 'frog legs', #
+	'4' : 'basilic', #
+	'5' : 'cacao powder', #
+	'6' : 'mozzarella di bufala', #
 	'7' : '7Up', #
-	'8' : 'eights',
-	'9' : 'nines',
+	'8' : 'nutella', #
+	'9' : 'carrot', #
 	':' : 'hemorrhoids creme', #
 	';' : 'toothpaste', #
 	'<' : 'blood', #
@@ -43,16 +43,16 @@ ingredients_dictionary = {
 	'E' : 'egg whites', #
 	'F' : 'baking powder', #
 	'G' : 'tea', #
-	'H' : 'H',
+	'H' : 'camembert', #
 	'I' : 'paint', #
 	'J' : 'fruit juice', #
-	'K' : 'K',
+	'K' : 'whipped cream',
 	'L' : 'lemon juice', #
 	'M' : 'soy milk', #
-	'N' : 'N',
+	'N' : 'baker\'s yeast', #
 	'O' : 'olive oil', #
 	'P' : 'Coca-Cola', #
-	'Q' : 'Q',
+	'Q' : 'cherry tomato', #
 	'R' : 'cinnamon', #
 	'S' : 'soap', #
 	'T' : 'tomato juice', #
@@ -64,10 +64,10 @@ ingredients_dictionary = {
 	'Z' : 'lemon zest', #
 	'[' : 'open brackets',
 	'\\' : 'dust', #
-	']' : 'closed brackets',
+	']' : 'eggplant', #
 	'^' : 'champagne', #
-	'_' : 'underscores',
-	'`' : 'grave accents',
+	'_' : 'butternut squash', #
+	'`' : 'radish', #
 	'a' : 'water', #
 	'b' : 'beer', #
 	'c' : 'chocolate', #
@@ -78,20 +78,20 @@ ingredients_dictionary = {
 	'h' : 'honey', #
 	'i' : 'squid ink', #
 	'j' : 'orange juice', #
-	'k' : 'k',
+	'k' : 'baguette', #
 	'l' : 'lemonade', #
 	'm' : 'milk', #
-	'n' : 'n',
+	'n' : 'foie gras', #
 	'o' : 'sunflower oil', #
 	'p' : 'Pepsi', #
 	'q' : 'parmesan', #
 	'r' : 'cough syrup', #
 	's' : 'sugar', #
 	't' : 'tabasco', #
-	'u' : 'u',
+	'u' : 'bacon', #
 	'v' : 'vinegar', #
 	'w' : 'white wine', #
-	'x' : 'x',
+	'x' : 'paprika', #
 	'y' : 'yoghurt', #
 	'z' : 'tonic water', #
 	'{' : 'ketchup', #
