@@ -2,7 +2,7 @@
 # TODO: give the items that don't have a # at the end a creative name!
 # Regex: .*(?<!#)$
 ingredients_dictionary = {
-	#'\n' : 'new lines', #
+	# '\n' : 'new lines', #
 	' ' : 'air', #
 	'!' : 'gunpowder', #
 	'"' : 'ice', #

@@ -1,17 +1,36 @@
-import sys, shutil, random
+import sys
+import random
+
 # import dictionary
 from ingredients import ingredients_dictionary
 
 # Get input (arguments):
-if len(sys.argv) < 2:
-	print("Please provide a string as argument.")
+# Enough arg ?
+if (len(sys.argv) < 3 and sys.argv[1] == "-f") or len(sys.argv) < 2:
+	print("Usage : " + sys.argv[0] + " string | -f file ")
 	exit()
-uhoh = len(sys.argv) > 2
-input = sys.argv[1]
+
+# It's a file
+if sys.argv[1] == "-f":
+	uhoh = len(sys.argv) > 3
+	try:
+		file = open(sys.argv[2], "r")
+		input = file.readline().rstrip()
+	except IOError:
+		print("Could not read file: " + sys.argv[2])
+		sys.exit()
+# It's a string
+else:
+	uhoh = len(sys.argv) > 2
+	input = sys.argv[1]
 
 # Create file:
 print("Creating file concoction.chef...")
-recipe = open("concoction.chef", "w+")
+try:
+	recipe = open("concoction.chef", "w+")
+except IOError:
+	print("Could not write file: " + sys.argv[2])
+	sys.exit()
 recipe.write("Strange Concoction.\n\n")
 
 # Ingredients:
@@ -19,6 +38,7 @@ print("Parsing input...")
 recipe.write("Ingredients.\n")
 ingredients = {} # list of used ingredients
 # Parse input and make a list of used ingredients:
+
 for c in input:
 	ingredients[c] = ingredients_dictionary[c]
 
@@ -35,13 +55,12 @@ recipe.write("\n")
 # Method:
 print("Writing method...")
 recipe.write("Method.\n")
-input = input[::-1] # reverse input
+input = input[::-1] # Reverse input
 for c in input:
 	recipe.write("Put " + ingredients[c] + " into mixing bowl. ")
-#recipe.write("\nPour contents of the mixing bowl into the baking dish. Refrigerate for 1 hours.")
 recipe.write("\nPour contents of the mixing bowl into the baking dish.\n\nServes 1.")
 
 recipe.close()
 print("Done!")
 if uhoh:
-	print("NOTICE: You've provided more than one argument, maybe you forgot to add around your given string?")
+	print("NOTICE: You've provided more than one argument, maybe you forgot to add quotes around your given string?")
