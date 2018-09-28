@@ -1,35 +1,42 @@
 import sys
 import random
+import argparse
 
 # import dictionary
 from ingredients import ingredients_dictionary
 
-# Get input (arguments):
-# Enough arg ?
-if (len(sys.argv) < 3 and sys.argv[1] == "-f") or len(sys.argv) < 2:
-	print("Usage : " + sys.argv[0] + " string | -f file ")
-	exit()
+# Parsing args
+parser = argparse.ArgumentParser(description="Generate a Chef program")
+group = parser.add_mutually_exclusive_group()
+group.add_argument("-s", "--string", action="store", type=str, help="Set string as input", default="")
+group.add_argument("-f", "--file", action="store", type=str, help="Set file as input")
+parser.add_argument("-o", "--out", action="store", type=str, help="Set file as output")
+args = parser.parse_args()
 
-# It's a file
-if sys.argv[1] == "-f":
-	uhoh = len(sys.argv) > 3
-	try:
-		file = open(sys.argv[2], "r")
-		input = file.readline().rstrip()
-	except IOError:
-		print("Could not read file: " + sys.argv[2])
-		sys.exit()
-# It's a string
+# Analyse args
+output = "concoction.chef"
+if args.out is not None:
+	output = args.out
+
+inputText = ""
+if args.string is not None and len(args.string) != 0 :
+	inputText = args.string
 else:
-	uhoh = len(sys.argv) > 2
-	input = sys.argv[1]
+	if args.file is not None:
+		try:
+			fileInArg = open(args.file, "r")
+			inputText = fileInArg.readline().strip()
+		except IOError:
+			print("Could not read file: " + args.file)
+			sys.exit()
+
 
 # Create file:
 print("Creating file concoction.chef...")
 try:
-	recipe = open("concoction.chef", "w+")
+	recipe = open(output, "w+")
 except IOError:
-	print("Could not write file: " + sys.argv[2])
+	print("Could not write file: " + output)
 	sys.exit()
 recipe.write("Strange Concoction.\n\n")
 
@@ -39,7 +46,7 @@ recipe.write("Ingredients.\n")
 ingredients = {} # list of used ingredients
 # Parse input and make a list of used ingredients:
 
-for c in input:
+for c in inputText:
 	ingredients[c] = ingredients_dictionary[c]
 
 print("Writing ingredients...")
@@ -55,12 +62,10 @@ recipe.write("\n")
 # Method:
 print("Writing method...")
 recipe.write("Method.\n")
-input = input[::-1] # Reverse input
-for c in input:
-	recipe.write("Put " + ingredients[c] + " into mixing bowl. ")
+inputText = inputText[::-1] # Reverse input
+for c in inputText:
+	recipe.write("Put " + ingredients[c] + " into mixing bowl.\n")
 recipe.write("\nPour contents of the mixing bowl into the baking dish.\n\nServes 1.")
 
 recipe.close()
 print("Done!")
-if uhoh:
-	print("NOTICE: You've provided more than one argument, maybe you forgot to add quotes around your given string?")
