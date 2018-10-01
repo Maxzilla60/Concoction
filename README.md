@@ -19,9 +19,9 @@ Running Chef:
 * Run `concoction.chef` with the interpreter
 
 ## Running :page_facing_up:
-`concoction.py -s "Hello World"` (Generating)
+`main.py -s "Hello World"` (Generating)
 
-`concoction.py -f "file name"` (Generating)
+`main.py -f "file name"` (Generating)
 
 `chef concoction.chef` (Running Chef)
 
