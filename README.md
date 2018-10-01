@@ -18,12 +18,18 @@ Running Chef:
 * Install a [Chef interpreter](https://github.com/mpw96/perl-Acme-Chef)
 * Run `concoction.chef` with the interpreter
 
-## Running :page_facing_up:
+## Running as executable :page_facing_up:
 `main.py -s "Hello World"` (Generating)
 
 `main.py -f "file name"` (Generating)
 
 `chef concoction.chef` (Running Chef)
+
+## Running as webserver :page_facing_up:
+
+Just launch has that :
+
+`main.py -p PORT` 
 
 ## Note:exclamation:
 The script supports a limited amount of characters, see [`ingredients.py`](https://github.com/Maxzilla60/Concoction/blob/master/ingredients.py).
@@ -34,4 +40,4 @@ Obviously, do **not** attempt to create and drink the generated concoctions! :wo
 - [ ] **More creative names for [`ingredients.py`](https://github.com/Maxzilla60/Concoction/blob/master/ingredients.py)!**
 - [ ] Also get dry ingredients into the mix!
 - [x] Support files as input/output
-- [ ] Web version?
+- [x] Web version?

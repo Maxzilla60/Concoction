@@ -1,6 +1,8 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from urlparse import urlparse, parse_qs
 import argparse
 import concoction
+
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -10,13 +12,22 @@ class S(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._set_headers()
-        self.wfile.write("<html><body><h1>hi!</h1></body></html>")
+        if self.path[:9] != "/?recipe=":
+            self.wfile.write("You must give recipe parameter")
+        else:
+            query_components = parse_qs(urlparse(self.path).query)
+
+            if "recipe" not in query_components:
+                self.wfile.write("You must give recipe parameter")
+
+            self.wfile.write(concoction.Concoction().process(map(lambda x: x, str(query_components["recipe"]))))
 
 
-def run(server_class=HTTPServer, handler_class=S, port=80):
+def run(server_class=HTTPServer, handler_class=S, port=80, verbose=False):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    print 'Starting httpd...'
+    if verbose:
+        print 'Starting httpd...'
     httpd.serve_forever()
 
 
@@ -39,7 +50,7 @@ if __name__ == "__main__":
     args = parse_args()
 
     if args.port != -1:
-        run(port=args.port)
+        run(port=args.port,verbose=args.verbose)
     else:
 
         my_concoction = concoction.Concoction(args.verbose)
