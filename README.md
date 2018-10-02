@@ -31,6 +31,16 @@ Just launch has that :
 
 `main.py -p PORT` 
 
+## Running as webserver in Docker :page_facing_up:
+
+Just clone, cd in it and build it : `docker build -t concoction .`
+
+You can use another name instead of `concoction`.
+
+And just run it : `docker run -p "80:8888" -ti concoction`.
+
+If all is ok, just [go here](http://localhost:8888).
+
 ## Note:exclamation:
 The script supports a limited amount of characters, see [`ingredients.py`](https://github.com/Maxzilla60/Concoction/blob/master/ingredients.py).
 

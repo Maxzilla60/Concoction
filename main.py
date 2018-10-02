@@ -4,7 +4,7 @@ import argparse
 import concoction
 
 
-class S(BaseHTTPRequestHandler):
+class WebServer(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
@@ -23,7 +23,7 @@ class S(BaseHTTPRequestHandler):
             self.wfile.write(concoction.Concoction().process(map(lambda x: x, str(query_components["recipe"]))))
 
 
-def run(server_class=HTTPServer, handler_class=S, port=80, verbose=False):
+def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     if verbose:
