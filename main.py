@@ -27,7 +27,7 @@ def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     if verbose:
-        print 'Starting httpd...'
+        print('Starting httpd...')
     httpd.serve_forever()
 
 
