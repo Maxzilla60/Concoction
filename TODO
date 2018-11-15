@@ -1,0 +1,7 @@
+Todo:
+  ✔ Ingredients overhaul @done(18-11-15 14:29)
+  ☐ Better argument parsing
+  ☐ Move webserver stuff to separate thing (new repo or branch)
+  ☐ Support newline characters
+    ☐ Read all lines of file
+  ☐ Random recipe title

@@ -47,7 +47,9 @@ The script supports a limited amount of characters, see [`ingredients.py`](https
 Obviously, do **not** attempt to create and drink the generated concoctions! :worried:
 
 ### TODO :clipboard:
-- [ ] **More creative names for [`ingredients.py`](https://github.com/Maxzilla60/Concoction/blob/master/ingredients.py)!**
+- [x] **More creative names for [`ingredients.py`](https://github.com/Maxzilla60/Concoction/blob/master/ingredients.py)!**
+- [ ] Random recipe title
 - [ ] Also get dry ingredients into the mix!
-- [x] Support files as input/output
-- [x] Web version?
+- [ ] Support files as input
+- [x] Support files as output
+- [x] Web version
