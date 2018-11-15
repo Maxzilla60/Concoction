@@ -33,31 +33,18 @@ def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False
 
 def parse_args():
     # Parsing args
-    parser = argparse.ArgumentParser(description="Generate a Chef program")
-    main_group = parser.add_mutually_exclusive_group()
-    group_file = main_group.add_argument_group()
-    group = group_file.add_mutually_exclusive_group()
-    group.add_argument("-s", "--string", action="store", type=str, help="Set string as input", default="")
-    group.add_argument("-f", "--file", action="store", type=str, help="Set file as input")
-    group_file.add_argument("-o", "--out", action="store", type=str, help="Set file as output")
-    main_group.add_argument("-p", "--port", action="store", type=int, help="Start as web server", default=-1)
-    parser.add_argument("-v", "--verbose", action="store_true", help="Allow verbose")
+    parser = argparse.ArgumentParser(description="Concoction.py - Generate a Chef program that outputs given string, as a means of creative encryption.", epilog="https://github.com/Maxzilla60/Concoction")
+    parser.add_argument("-f", "--file", action="store_true", help="use file as input")
+    parser.add_argument("input", metavar="input", type=str, help="string to convert to chef program")
+    parser.add_argument("-o", "--output", action="store", type=str, help="set filename for generated chef program, default is concoction.chef", default="concoction.chef")
+    parser.add_argument("-v", "--verbose", action="store_true", help="allow verbose; the script will print out what it's doing")
     return parser.parse_args()
-
 
 if __name__ == "__main__":
     args = parse_args()
-    if args.port != -1:
-        run(port=args.port, verbose=args.verbose)
-    else:
-        my_concoction = concoction.Concoction(args.verbose)
-        my_output_file = "concoction.chef"
-        if args.out is not None:
-            my_output_file = args.out
-        my_input_text = ""
-        if args.string is not None and len(args.string) != 0:
-            my_input_text = args.string
-        else:
-            if args.file is not None:
-                my_input_text = my_concoction.read_file(args.file)
-        my_concoction.write_file(my_output_file, my_concoction.process(my_input_text))
+    my_concoction = concoction.Concoction(args.verbose)
+    my_output_file = args.output
+    my_input_text = args.input
+    if args.file:
+        my_input_text = my_concoction.read_file(args.file)
+    my_concoction.write_file(my_output_file, my_concoction.process(my_input_text))

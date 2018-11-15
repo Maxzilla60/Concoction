@@ -1,6 +1,6 @@
 Todo:
   ✔ Ingredients overhaul @done()
-  ☐ Better argument parsing
+  ✔ Better argument parsing @done()
   ☐ Move webserver stuff to separate thing (new repo or branch)
     - get rid of `main.py`
   ☐ Comments & Verbose prints
