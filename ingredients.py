@@ -1,100 +1,100 @@
 # Dictionary of ASCII characters and a creative name for each of them
 # TODO: give the items that don't have a # at the end a creative name!
-# Regex: .*(?<!#)$
+# Regex: .*[^#]$
 ingredients_dictionary = {
 	# '\n' : 'new lines', #
 	' ' : 'air', #
 	'!' : 'gunpowder', #
 	'"' : 'ice', #
 	'#' : 'hashbrowns', #
-	'$' : 'gold', #
+	'$' : 'gold flakes', #
 	'%' : 'sunscreen', #
 	'&' : 'glue', #
-	"'" : 'apple juice', #
+	"'" : 'alcohol', #
 	'(' : 'salt', #
 	')' : 'pepper', #
 	'*' : 'sprinkles', #
-	'+' : 'plusses',
+	'+' : 'sacramental bread', #
 	',' : 'food coloring', #
-	'-' : 'hyphens', #
+	'-' : 'soap', #
 	'.' : 'bread crumbs', #
 	'/' : 'laxative', #
-	'0' : 'olives', #
-	'1' : 'eggnog', #
-	'2' : 'cayenne pepper', #
-	'3' : 'frog legs', #
-	'4' : 'basilic', #
-	'5' : 'cacao powder', #
-	'6' : 'mozzarella di bufala', #
+	'0' : 'Coca-Cola Zero', #
+	'1' : 'Coca-Cola', #
+	'2' : 'Pepsi', #
+	'3' : 'Mountain Dew', #
+	'4' : 'Dr. Pepper', #
+	'5' : 'Sprite', #
+	'6' : 'Fanta', #
 	'7' : '7Up', #
-	'8' : 'nutella', #
-	'9' : 'carrot', #
+	'8' : 'Monster Energy', #
+	'9' : 'Red Bull', #
 	':' : 'hemorrhoids creme', #
 	';' : 'toothpaste', #
 	'<' : 'blood', #
 	'=' : 'sweat', #
 	'>' : 'tears', #
-	'?' : 'stuff', #
+	'?' : 'secret ingredient', #
 	'@' : 'aspirin', #
-	'A' : 'carbonated water', #
-	'B' : 'rum', #
+	'A' : 'apple juice', #
+	'B' : 'baking powder', #
 	'C' : 'coffee', #
-	'D' : 'dirt', #
+	'D' : 'dark chocolate', #
 	'E' : 'egg whites', #
-	'F' : 'baking powder', #
-	'G' : 'tea', #
-	'H' : 'camembert', #
-	'I' : 'paint', #
-	'J' : 'fruit juice', #
-	'K' : 'whipped cream',
+	'F' : 'fish sauce', #
+	'G' : 'garlic', #
+	'H' : 'champagne', #
+	'I' : 'icing', #
+	'J' : 'carrot juice', #
+	'K' : 'black olives', #
 	'L' : 'lemon juice', #
-	'M' : 'soy milk', #
-	'N' : 'baker\'s yeast', #
+	'M' : 'mint', #
+	'N' : 'cinnamon', #
 	'O' : 'olive oil', #
-	'P' : 'Coca-Cola', #
-	'Q' : 'cherry tomato', #
-	'R' : 'cinnamon', #
-	'S' : 'soap', #
+	'P' : 'pickle juice', #
+	'Q' : 'cough syrup', #
+	'R' : 'rum', #
+	'S' : 'sparkling water', #
 	'T' : 'tomato juice', #
-	'U' : 'uranium', #
+	'U' : 'butter', #
 	'V' : 'vodka', #
-	'W' : 'red wine', #
-	'X' : 'whisky', #
-	'Y' : 'cream cheese', #
+	'W' : 'whipped cream', #
+	'X' : 'mustard', #
+	'Y' : 'yeast', #
 	'Z' : 'lemon zest', #
-	'[' : 'open brackets',
+	'[' : 'dirt', #
 	'\\' : 'dust', #
-	']' : 'eggplant', #
-	'^' : 'champagne', #
-	'_' : 'butternut squash', #
-	'`' : 'radish', #
+	']' : 'grass', #
+	'^' : 'squid ink', #
+	'_' : 'paint', #
+	'`' : 'horseradish', #
 	'a' : 'water', #
 	'b' : 'beer', #
-	'c' : 'chocolate', #
-	'd' : 'fertilizer', #
+	'c' : 'milk chocolate', #
+	'd' : 'soy milk', #
 	'e' : 'egg yolk', #
 	'f' : 'flour', #
-	'g' : 'green tea', #
+	'g' : 'ginger', #
 	'h' : 'honey', #
-	'i' : 'squid ink', #
+	'i' : 'ice cream', #
 	'j' : 'orange juice', #
-	'k' : 'baguette', #
+	'k' : 'green olives', #
 	'l' : 'lemonade', #
 	'm' : 'milk', #
-	'n' : 'foie gras', #
+	'n' : 'vanilla extract', #
 	'o' : 'sunflower oil', #
-	'p' : 'Pepsi', #
-	'q' : 'parmesan', #
-	'r' : 'cough syrup', #
+	'p' : 'parmesan cheese', #
+	'q' : 'maple syrup', #
+	'r' : 'red wine', #
 	's' : 'sugar', #
-	't' : 'tabasco', #
-	'u' : 'bacon', #
+	't' : 'tea', #
+	'u' : 'cocoa powder', #
 	'v' : 'vinegar', #
 	'w' : 'white wine', #
-	'x' : 'paprika', #
+	'x' : 'tabasco', #
 	'y' : 'yoghurt', #
 	'z' : 'tonic water', #
 	'{' : 'ketchup', #
-	'|' : 'mustard', #
+	'|' : 'whisky', #
 	'}' : 'mayonnaise' #
 }
