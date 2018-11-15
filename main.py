@@ -19,7 +19,8 @@ class WebServer(BaseHTTPRequestHandler):
             if "recipe" not in query_components:
                 self.wfile.write("You must give recipe parameter")
 
-            self.wfile.write(concoction.Concoction().process(map(lambda x: x, str(query_components["recipe"]))))
+            self.wfile.write(concoction.Concoction().process(
+                map(lambda x: x, str(query_components["recipe"]))))
 
 
 def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False):
@@ -45,24 +46,18 @@ def parse_args():
 
 
 if __name__ == "__main__":
-
     args = parse_args()
-
     if args.port != -1:
-        run(port=args.port,verbose=args.verbose)
+        run(port=args.port, verbose=args.verbose)
     else:
-
         my_concoction = concoction.Concoction(args.verbose)
-
         my_output_file = "concoction.chef"
         if args.out is not None:
             my_output_file = args.out
-
         my_input_text = ""
         if args.string is not None and len(args.string) != 0:
             my_input_text = args.string
         else:
             if args.file is not None:
                 my_input_text = my_concoction.read_file(args.file)
-
-        my_concoction.write_file(my_output_file,my_concoction.process(my_input_text))
+        my_concoction.write_file(my_output_file, my_concoction.process(my_input_text))
