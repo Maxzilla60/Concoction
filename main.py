@@ -1,8 +1,7 @@
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from urlparse import urlparse, parse_qs
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib import parse
 import argparse
 import concoction
-
 
 class WebServer(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -15,7 +14,7 @@ class WebServer(BaseHTTPRequestHandler):
         if self.path[:9] != "/?recipe=":
             self.wfile.write("You must give recipe parameter")
         else:
-            query_components = parse_qs(urlparse(self.path).query)
+            query_components = parse.parse_qs(parse(self.path).query)
 
             if "recipe" not in query_components:
                 self.wfile.write("You must give recipe parameter")
