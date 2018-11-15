@@ -32,9 +32,7 @@ class Concoction:
             print("Done!")
 
     def process(self, input_text):
-        output = ""
-
-        output += "Strange Concoction.\n\n"
+        output = "Strange Concoction.\n\n"
         output += "Ingredients.\n"
 
         ingredients = {} # list of used ingredients

@@ -6,7 +6,7 @@ import concoction
 class WebServer(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
+        self.send_header("Content-type", "text/plain")
         self.end_headers()
 
     def do_GET(self):
@@ -24,10 +24,10 @@ class WebServer(BaseHTTPRequestHandler):
 
 
 def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False):
-    server_address = ('', port)
+    server_address = ("", port)
     httpd = server_class(server_address, handler_class)
     if verbose:
-        print('Starting httpd...')
+        print("Starting httpd...")
     httpd.serve_forever()
 
 
