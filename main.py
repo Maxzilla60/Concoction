@@ -1,35 +1,4 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib import parse
-import argparse
-import concoction
-
-class WebServer(BaseHTTPRequestHandler):
-    def _set_headers(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/plain")
-        self.end_headers()
-
-    def do_GET(self):
-        self._set_headers()
-        if self.path[:9] != "/?recipe=":
-            self.wfile.write("You must give recipe parameter")
-        else:
-            query_components = parse.parse_qs(parse(self.path).query)
-
-            if "recipe" not in query_components:
-                self.wfile.write("You must give recipe parameter")
-
-            self.wfile.write(concoction.Concoction().process(
-                map(lambda x: x, str(query_components["recipe"]))))
-
-
-def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False):
-    server_address = ("", port)
-    httpd = server_class(server_address, handler_class)
-    if verbose:
-        print("Starting httpd...")
-    httpd.serve_forever()
-
+import argparse, concoction
 
 def parse_args():
     # Parsing args

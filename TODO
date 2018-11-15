@@ -1,8 +1,8 @@
 Todo:
   ✔ Ingredients overhaul @done()
   ✔ Better argument parsing @done()
-  ☐ Move webserver stuff to separate thing (new repo or branch)
-    - get rid of `main.py`
+  ✔ Move webserver stuff to separate thing (new repo or branch) @done()
+  ☐ Get rid of `main.py`
   ☐ Comments & Verbose prints
   ☐ Random recipe title
   ☐ Support newline characters
