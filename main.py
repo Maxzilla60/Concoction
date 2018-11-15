@@ -16,4 +16,4 @@ if __name__ == "__main__":
     my_input_text = args.input
     if args.file:
         my_input_text = my_concoction.read_file(args.file)
-    my_concoction.write_file(my_output_file, my_concoction.process(my_input_text))
+    my_concoction.write_file(my_output_file, my_concoction.generate_chefrecipe(my_input_text))

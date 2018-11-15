@@ -1,7 +1,5 @@
 import sys
 import random
-
-# import dictionary
 from ingredients import ingredients_dictionary
 
 class Concoction:
@@ -10,7 +8,7 @@ class Concoction:
 
     def read_file(self, file_arg):
         if self.verbose:
-            print("Read input file")
+            print("Reading input file...")
         try:
             return open(file_arg, "r").readline().strip()
         except IOError:
@@ -19,7 +17,7 @@ class Concoction:
 
     def write_file(self, file_arg, file_content):
         if self.verbose:
-            print("Write out file")
+            print("Writing out file...")
         try:
             recipe = open(file_arg, "w+")
             recipe.write(file_content)
@@ -31,35 +29,43 @@ class Concoction:
         if self.verbose:
             print("Done!")
 
-    def process(self, input_text):
+    def generate_chefrecipe(self, input_text):
+        ingredients = self.get_ingredients(input_text)
         output = "Strange Concoction.\n\n"
         output += "Ingredients.\n"
+        output += self.generate_ingredients(input_text, ingredients) + "\n"
+        output += "Method.\n"
+        output += self.generate_method(input_text, ingredients) + "\n"
+        output += "Pour contents of the mixing bowl into the baking dish.\n\n"
+        output += "Serves 1."
+        return output
 
-        ingredients = {} # list of used ingredients
+    def get_ingredients(self, input_text):
+        ingredients = {} # list to return
         # Parse input and make a list of used ingredients:
-
         for c in input_text:
             ingredients[c] = ingredients_dictionary[c]
+        return ingredients
 
+    def generate_ingredients(self, input_text, ingredients):
         if self.verbose:
             print("Writing ingredients...")
-
+        ingredients_string = "" # string to return
         measures = ["ml", "l", "dashes"]  # different measures to randomize
-        items = list(ingredients.items())  # convert ingredients to list
-        random.shuffle(items)  # shuffle this list
-        # Go through the ingredients and print 'em to the file:
+        items = list(ingredients.items())  # Convert ingredients to list
+        random.shuffle(items)  # Shuffle the list
+        # Go through the ingredients and write out respective ingredient items:
         for key, value in items:
             # "[ASCII value] [random measure] [ingredient name]"
-            output += str(ord(key)) + " " + random.choice(measures) + " " + value + "\n"
-        output += "\n"
+            ingredients_string += str(ord(key)) + " " + random.choice(measures) + " " + value + "\n"
+        return ingredients_string
 
-        # Method:
+    def generate_method(self, input_text, ingredients):
         if self.verbose:
             print("Writing method...")
-        output += "Method.\n"
-
+        method_string = "" # string to return
         input_text = input_text[::-1]  # Reverse input
+        # Go through the characters of input text and write out respective methods:
         for c in input_text:
-            output += "Put " + ingredients[c] + " into mixing bowl.\n"
-        output += "\nPour contents of the mixing bowl into the baking dish.\n\nServes 1."
-        return output
+            method_string += "Put " + ingredients[c] + " into mixing bowl.\n"
+        return method_string
