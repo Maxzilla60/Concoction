@@ -3,17 +3,20 @@ from ingredients import ingredients_dictionary
 
 
 class Concoction:
-    def __init__(self, input_string, verbose=False, seeded=False):
-        self.input_string = input_string
+    def __init__(self, input_string, verbose=False, seeded=False, from_file=False):
         self.ingredients = {}
         self.verbose = verbose
         self.seeded = seeded
+        if from_file:
+            self.input_string = self.get_input_fromfile(input_string)
+        else:
+            self.input_string = input_string
 
-    def read_file(self, file_arg):
+    def get_input_fromfile(self, file_arg):
         if self.verbose:
             print("Reading input file...")
         try:
-            return open(file_arg, "r").readline().strip()
+            return ''.join(open(file_arg, "r").readlines())
         except IOError:
             print("Could not read file: " + file_arg)
             sys.exit()

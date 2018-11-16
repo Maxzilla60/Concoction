@@ -7,8 +7,9 @@ Todo:
   ✔ Refactor & Comments & Verbose prints @done()
   ✔ Random recipe title @done()
   ✔ Optional random seed @done()
-  ☐ Check empty input
+  ✘ Check empty input @cancelled()
   ☐ Also get dry ingredients into the mix!
   ☐ Support for more characters in ingredients.py
-  ☐ Support newline characters
-    ☐ Read all lines of file
+  ✔ Support newline characters @done()
+    ✔ Read all lines of file @done()
+  ☐ Update README

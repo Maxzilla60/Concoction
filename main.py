@@ -13,8 +13,6 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     my_input_text = args.input
-    my_concoction = concoction.Concoction(my_input_text, verbose=args.verbose, seeded=args.seeded)
     my_output_file = args.output
-    if args.file:
-        my_input_text = my_concoction.read_file(args.file)
+    my_concoction = concoction.Concoction(my_input_text, verbose=args.verbose, seeded=args.seeded, from_file=args.file)
     my_concoction.write_file(my_output_file, my_concoction.generate_chefrecipe())
