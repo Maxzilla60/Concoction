@@ -84,7 +84,7 @@ ingredients_dictionary = {
 	'm' : 'milk', #
 	'n' : 'vanilla extract', #
 	'o' : 'sunflower oil', #
-	'p' : 'parmesan cheese', #
+	'p' : 'shredded cheese', #
 	'q' : 'maple syrup', #
 	'r' : 'red wine', #
 	's' : 'sugar', #

@@ -1,4 +1,4 @@
-import argparse, concoction
+import argparse, concoction, sys
 
 def parse_args():
     # Parsing args
@@ -10,9 +10,21 @@ def parse_args():
     parser.add_argument("-s", "--seeded", action="store_true", help="allow seeded randomness; the script will use the given input string as a seed for the randomization, default is False")
     return parser.parse_args()
 
+def write_file(output_filename, file_content, verbose=False):
+    if verbose:
+        print("Writing out file...")
+    try:
+        recipe = open(output_filename, "w+")
+        recipe.write(file_content)
+        recipe.close()
+    except IOError:
+        print("Could not write file: " + output_filename)
+        sys.exit()
+    if verbose:
+        print("Done!")
+    print(output_filename)
+
 if __name__ == "__main__":
     args = parse_args()
-    my_input_text = args.input
-    my_output_file = args.output
-    my_concoction = concoction.Concoction(my_input_text, verbose=args.verbose, seeded=args.seeded, from_file=args.file)
-    my_concoction.write_file(my_output_file, my_concoction.generate_chefrecipe())
+    my_concoction = concoction.Concoction(args.input, verbose=args.verbose, seeded=args.seeded, from_file=args.file)
+    write_file(args.output, my_concoction.generate_chefrecipe(), verbose=args.verbose)

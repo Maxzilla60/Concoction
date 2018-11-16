@@ -12,28 +12,14 @@ class Concoction:
         else:
             self.input_string = input_string
 
-    def get_input_fromfile(self, file_arg):
+    def get_input_fromfile(self, input_filename):
         if self.verbose:
             print("Reading input file...")
         try:
-            return ''.join(open(file_arg, "r").readlines())
+            return ''.join(open(input_filename, "r").readlines())
         except IOError:
-            print("Could not read file: " + file_arg)
+            print("Could not read file: " + input_filename)
             sys.exit()
-
-    def write_file(self, file_arg, file_content):
-        if self.verbose:
-            print("Writing out file...")
-        try:
-            recipe = open(file_arg, "w+")
-            recipe.write(file_content)
-            recipe.close()
-        except IOError:
-            print("Could not write file: " + file_arg)
-            sys.exit()
-
-        if self.verbose:
-            print("Done!")
 
     def generate_chefrecipe(self):
         self.set_seed()
@@ -44,7 +30,6 @@ class Concoction:
         output += self.generate_ingredients() + "\n"
         output += "Method.\n"
         output += self.generate_method() + "\n"
-        output += "Pour contents of the mixing bowl into the baking dish.\n\n"
         output += "Serves 1."
         self.reset_seed()
         return output
@@ -63,22 +48,8 @@ class Concoction:
         # Easter Egg: when the input contains one or multiples of one ingredient:
         if self.input_string == len(self.input_string) * self.input_string[0]:
             return self.oneingredient_title()
-        title_prefixes = [
-            "Awful",
-            "Barf",
-            "Horrible",
-            "Magic",
-            "Secret",
-            "Strange",
-        ]
-        title_suffixes = [
-            "Cocktail",
-            "Concoction",
-            "Drink",
-            "Mixture",
-            "Potion",
-            "Recipe",
-        ]
+        title_prefixes = ["Awful","Barf","Horrible","Magic","Secret","Strange"]
+        title_suffixes = ["Cocktail","Concoction","Drink","Mixture","Potion","Recipe"]
         title = "" + random.choice(title_prefixes) + " " + random.choice(title_suffixes)
         return title
 
@@ -103,6 +74,7 @@ class Concoction:
         # Go through the characters of input text and write out respective methods:
         for c in reversed_input_string:
             method_string += "Put " + self.ingredients[c] + " into mixing bowl.\n"
+        method_string += "Pour contents of the mixing bowl into the baking dish.\n"
         return method_string
 
     def oneingredient_title(self):
