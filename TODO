@@ -8,7 +8,7 @@ Todo:
   ✔ Random recipe title @done()
   ✔ Optional random seed @done()
   ✘ Check empty input @cancelled()
-  ☐ Also get dry ingredients into the mix!
+  ✔ Also get dry ingredients into the mix! @done()
   ☐ Support for more characters in ingredients.py
   ✔ Support newline characters @done()
     ✔ Read all lines of file @done()

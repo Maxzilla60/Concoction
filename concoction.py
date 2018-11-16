@@ -35,9 +35,10 @@ class Concoction:
         return output
 
     def get_ingredients(self):
+        measures = ["ml", "l", "dashes", "g", "kg", "pinches", "cups", "teaspoons", "tablespoons"]
         # Parse input and make a list of used ingredients:
         for c in self.input_string:
-            self.ingredients[c] = ingredients_dictionary[c]
+            self.ingredients[c] = { 'name': ingredients_dictionary[c], 'measure': random.choice(measures) }
 
     def get_recipetitle(self):
         if self.verbose:
@@ -57,13 +58,12 @@ class Concoction:
         if self.verbose:
             print("Writing ingredients...")
         ingredients_string = "" # string to return
-        measures = ["ml", "l", "dashes"]  # different measures to randomize
         items = list(self.ingredients.items())  # Convert ingredients to list
         random.shuffle(items)  # Shuffle the list
         # Go through the ingredients and write out respective ingredient items:
         for key, value in items:
             # "[ASCII value] [random measure] [ingredient name]"
-            ingredients_string += str(ord(key)) + " " + random.choice(measures) + " " + value + "\n"
+            ingredients_string += str(ord(key)) + " " + value['measure'] + " " + value['name'] + "\n"
         return ingredients_string
 
     def generate_method(self):
@@ -73,7 +73,8 @@ class Concoction:
         reversed_input_string = self.input_string[::-1]  # Reverse input
         # Go through the characters of input text and write out respective methods:
         for c in reversed_input_string:
-            method_string += "Put " + self.ingredients[c] + " into mixing bowl.\n"
+            method_string += "Put " + self.ingredients[c]['name'] + " into mixing bowl.\n"
+        method_string += "Liquefy contents of the mixing bowl.\n"
         method_string += "Pour contents of the mixing bowl into the baking dish.\n"
         return method_string
 
