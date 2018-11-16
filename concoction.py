@@ -54,6 +54,12 @@ class Concoction:
     def get_recipetitle(self):
         if self.verbose:
             print("Naming concoction...")
+        # Easter Egg: when the input is just whitespace:
+        if self.input_string.isspace():
+            return "Bowl of Nothing"
+        # Easter Egg: when the input contains one or multiples of one ingredient:
+        if self.input_string == len(self.input_string) * self.input_string[0]:
+            return self.oneingredient_title()
         title_prefixes = [
             "Awful",
             "Barf",
@@ -95,6 +101,13 @@ class Concoction:
         for c in reversed_input_string:
             method_string += "Put " + self.ingredients[c] + " into mixing bowl.\n"
         return method_string
+
+    def oneingredient_title(self):
+        title = "Bowl of"
+        ingredient_name = ingredients_dictionary[self.input_string[0]].split()
+        for word in ingredient_name:
+            title += " " + word.capitalize()
+        return title
 
     def set_seed(self):
         if self.seeded:
