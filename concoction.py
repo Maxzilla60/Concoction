@@ -1,12 +1,13 @@
-import sys
-import random
+import random, sys
 from ingredients import ingredients_dictionary
 
+
 class Concoction:
-    def __init__(self, input_string, verbose=False):
-        self.verbose = verbose
+    def __init__(self, input_string, verbose=False, seeded=False):
         self.input_string = input_string
         self.ingredients = {}
+        self.verbose = verbose
+        self.seeded = seeded
 
     def read_file(self, file_arg):
         if self.verbose:
@@ -96,7 +97,8 @@ class Concoction:
         return method_string
 
     def set_seed(self):
-        random.seed(self.input_string)
+        if self.seeded:
+            random.seed(self.input_string)
     
     def reset_seed(self):
         random.seed()
