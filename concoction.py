@@ -30,6 +30,7 @@ class Concoction:
             print("Done!")
 
     def generate_chefrecipe(self, input_text):
+        self.set_seed(input_text)
         ingredients = self.get_ingredients(input_text)
         output = self.get_recipetitle(input_text)
         output += ".\n\n"
@@ -39,6 +40,7 @@ class Concoction:
         output += self.generate_method(input_text, ingredients) + "\n"
         output += "Pour contents of the mixing bowl into the baking dish.\n\n"
         output += "Serves 1."
+        self.reset_seed()
         return output
 
     def get_ingredients(self, input_text):
@@ -92,3 +94,9 @@ class Concoction:
         for c in input_text:
             method_string += "Put " + ingredients[c] + " into mixing bowl.\n"
         return method_string
+
+    def set_seed(self, input_text):
+        random.seed(input_text)
+    
+    def reset_seed(self):
+        random.seed()
