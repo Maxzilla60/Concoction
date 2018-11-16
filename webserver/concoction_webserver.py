@@ -1,4 +1,4 @@
-import concoction
+import ..concoction
 import argparse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib import parse
@@ -19,8 +19,9 @@ class WebServer(BaseHTTPRequestHandler):
             if "recipe" not in query_components:
                 self.wfile.write("You must give recipe parameter")
 
-            self.wfile.write(concoction.Concoction().process(
-                map(lambda x: x, str(query_components["recipe"]))))
+            self.wfile.write(concoction.Concoction(
+                map(lambda x: x, str(query_components["recipe"]))
+            ).generate_chefrecipe())
 
 
 def run(server_class=HTTPServer, handler_class=WebServer, port=80, verbose=False):

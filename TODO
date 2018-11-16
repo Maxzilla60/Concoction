@@ -1,7 +1,8 @@
 Todo:
   ✔ Ingredients overhaul @done()
   ✔ Better argument parsing @done()
-  ☐ Move webserver stuff to separate thing (new repo or branch)
+  ✔ Move webserver stuff to separate thing (new repo or branch) @done()
+    ✔ Fix web version @done()
     ✔ Fix Dockerfile? @done()
   ☐ Get rid of `main.py`?
   ✔ Refactor & Comments & Verbose prints @done()
