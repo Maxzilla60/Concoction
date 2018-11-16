@@ -35,7 +35,7 @@ def parse_args():
     # Parsing args
     parser = argparse.ArgumentParser(description="Concoction.py [Webserver version] - Generate a Chef program that outputs given string, as a means of creative encryption.", epilog="https://github.com/Maxzilla60/Concoction")
     parser.add_argument("-p", "--port", type=int, action="store", help="set port, default is 80", default=80)
-    parser.add_argument("-v", "--verbose", action="store_true", help="allow verbose; the script will print out what it's doing")
+    parser.add_argument("-v", "--verbose", action="store_true", help="allow verbose; the script will print out what it's doing, default is False")
     return parser.parse_args()
 
 
