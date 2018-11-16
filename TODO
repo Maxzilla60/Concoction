@@ -6,6 +6,7 @@ Todo:
   ☐ Get rid of `main.py`?
   ✔ Refactor & Comments & Verbose prints @done()
   ✔ Random recipe title @done()
+  ☐ Optional random seed
   ☐ Check empty input
   ☐ Also get dry ingredients into the mix!
   ☐ Support newline characters

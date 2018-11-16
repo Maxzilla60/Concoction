@@ -3,8 +3,10 @@ import random
 from ingredients import ingredients_dictionary
 
 class Concoction:
-    def __init__(self, verbose=False):
+    def __init__(self, input_string, verbose=False):
         self.verbose = verbose
+        self.input_string = input_string
+        self.ingredients = {}
 
     def read_file(self, file_arg):
         if self.verbose:
@@ -29,28 +31,26 @@ class Concoction:
         if self.verbose:
             print("Done!")
 
-    def generate_chefrecipe(self, input_text):
-        self.set_seed(input_text)
-        ingredients = self.get_ingredients(input_text)
-        output = self.get_recipetitle(input_text)
+    def generate_chefrecipe(self):
+        self.set_seed()
+        self.get_ingredients()
+        output = self.get_recipetitle()
         output += ".\n\n"
         output += "Ingredients.\n"
-        output += self.generate_ingredients(input_text, ingredients) + "\n"
+        output += self.generate_ingredients() + "\n"
         output += "Method.\n"
-        output += self.generate_method(input_text, ingredients) + "\n"
+        output += self.generate_method() + "\n"
         output += "Pour contents of the mixing bowl into the baking dish.\n\n"
         output += "Serves 1."
         self.reset_seed()
         return output
 
-    def get_ingredients(self, input_text):
-        ingredients = {} # list to return
+    def get_ingredients(self):
         # Parse input and make a list of used ingredients:
-        for c in input_text:
-            ingredients[c] = ingredients_dictionary[c]
-        return ingredients
+        for c in self.input_string:
+            self.ingredients[c] = ingredients_dictionary[c]
 
-    def get_recipetitle(self, input_text=None):
+    def get_recipetitle(self):
         if self.verbose:
             print("Naming concoction...")
         title_prefixes = [
@@ -72,12 +72,12 @@ class Concoction:
         title = "" + random.choice(title_prefixes) + " " + random.choice(title_suffixes)
         return title
 
-    def generate_ingredients(self, input_text, ingredients):
+    def generate_ingredients(self):
         if self.verbose:
             print("Writing ingredients...")
         ingredients_string = "" # string to return
         measures = ["ml", "l", "dashes"]  # different measures to randomize
-        items = list(ingredients.items())  # Convert ingredients to list
+        items = list(self.ingredients.items())  # Convert ingredients to list
         random.shuffle(items)  # Shuffle the list
         # Go through the ingredients and write out respective ingredient items:
         for key, value in items:
@@ -85,18 +85,18 @@ class Concoction:
             ingredients_string += str(ord(key)) + " " + random.choice(measures) + " " + value + "\n"
         return ingredients_string
 
-    def generate_method(self, input_text, ingredients):
+    def generate_method(self):
         if self.verbose:
             print("Writing method...")
         method_string = "" # string to return
-        input_text = input_text[::-1]  # Reverse input
+        reversed_input_string = self.input_string[::-1]  # Reverse input
         # Go through the characters of input text and write out respective methods:
-        for c in input_text:
-            method_string += "Put " + ingredients[c] + " into mixing bowl.\n"
+        for c in reversed_input_string:
+            method_string += "Put " + self.ingredients[c] + " into mixing bowl.\n"
         return method_string
 
-    def set_seed(self, input_text):
-        random.seed(input_text)
+    def set_seed(self):
+        random.seed(self.input_string)
     
     def reset_seed(self):
         random.seed()
