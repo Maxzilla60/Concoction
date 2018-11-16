@@ -51,8 +51,7 @@ class Concoction:
             return self.oneingredient_title()
         title_prefixes = ["Awful","Barf","Horrible","Magic","Secret","Strange"]
         title_suffixes = ["Cocktail","Concoction","Drink","Mixture","Potion","Recipe"]
-        title = "" + random.choice(title_prefixes) + " " + random.choice(title_suffixes)
-        return title
+        return "" + random.choice(title_prefixes) + " " + random.choice(title_suffixes)
 
     def generate_ingredients(self):
         if self.verbose:
@@ -74,11 +73,12 @@ class Concoction:
         # Go through the characters of input text and write out respective methods:
         for c in reversed_input_string:
             method_string += "Put " + self.ingredients[c]['name'] + " into mixing bowl.\n"
-        method_string += "Liquefy contents of the mixing bowl.\n"
+        method_string += "Liquefy contents of the mixing bowl.\n" # Liquefy in case there are dry ingredients
         method_string += "Pour contents of the mixing bowl into the baking dish.\n"
         return method_string
 
     def oneingredient_title(self):
+        # Generate title for a recipe that uses only one ingredient:
         title = "Bowl of"
         ingredient_name = ingredients_dictionary[self.input_string[0]].split()
         for word in ingredient_name:
@@ -86,6 +86,7 @@ class Concoction:
         return title
 
     def set_seed(self):
+        # Use input text as seed for randomization
         if self.seeded:
             random.seed(self.input_string)
     
@@ -118,5 +119,4 @@ def write_file(output_filename, file_content, verbose=False):
 args = parse_args()
 my_concoction = Concoction(args.input, verbose=args.verbose, seeded=args.seeded, from_file=args.file)
 write_file(args.output, my_concoction.generate_chefrecipe(), verbose=args.verbose)
-output_filename = args.output
-print(output_filename)
+print(args.output)
