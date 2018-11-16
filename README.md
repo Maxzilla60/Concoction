@@ -19,17 +19,17 @@ Running Chef:
 * Run the generated `.chef` file with the interpreter
 
 ## Running the Script :page_facing_up:
-`main.py "Hello World"` (Generating)
+`concoction.py "Hello World"` (Generating)
 
-`main.py -f my_file.txt` (Generating from file contents)
+`concoction.py -f my_file.txt` (Generating from file contents)
 
-`main.py -o my_outputfile.txt "Hello World"` (Setting the output file name)
+`concoction.py -o my_outputfile.txt "Hello World"` (Setting the output file name)
 
 `chef concoction.chef` (Running Chef)
 
 ## Usage :information_source:
 ```
-usage: main.py [-h] [-o OUTPUT] [-f] [-v] [-s] input
+usage: concoction.py [-h] [-o OUTPUT] [-f] [-v] [-s] input
 
 positional arguments:
     input                       string to convert to chef program
