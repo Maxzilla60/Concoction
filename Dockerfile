@@ -1,4 +1,4 @@
-FROM python:2-slim
+FROM python:3-slim
 
 RUN mkdir /app
 
@@ -10,4 +10,4 @@ ADD main.py        /app
 
 EXPOSE 80
 
-CMD python main.py -p 80
+CMD python concoction_webserver.py -p 80
