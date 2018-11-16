@@ -12,4 +12,5 @@ Todo:
   ☐ Support for more characters in ingredients.py
   ✔ Support newline characters @done()
     ✔ Read all lines of file @done()
-  ☐ Update README
+  ✔ Update README @done()
+  ☐ Write tests?
