@@ -31,7 +31,8 @@ class Concoction:
 
     def generate_chefrecipe(self, input_text):
         ingredients = self.get_ingredients(input_text)
-        output = "Strange Concoction.\n\n"
+        output = self.get_recipetitle(input_text)
+        output += ".\n\n"
         output += "Ingredients.\n"
         output += self.generate_ingredients(input_text, ingredients) + "\n"
         output += "Method.\n"
@@ -46,6 +47,28 @@ class Concoction:
         for c in input_text:
             ingredients[c] = ingredients_dictionary[c]
         return ingredients
+
+    def get_recipetitle(self, input_text=None):
+        if self.verbose:
+            print("Naming concoction...")
+        title_prefixes = [
+            "Awful",
+            "Barf",
+            "Horrible",
+            "Magic",
+            "Secret",
+            "Strange",
+        ]
+        title_suffixes = [
+            "Cocktail",
+            "Concoction",
+            "Drink",
+            "Mixture",
+            "Potion",
+            "Recipe",
+        ]
+        title = "" + random.choice(title_prefixes) + " " + random.choice(title_suffixes)
+        return title
 
     def generate_ingredients(self, input_text, ingredients):
         if self.verbose:
