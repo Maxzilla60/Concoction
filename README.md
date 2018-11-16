@@ -32,17 +32,17 @@ Running Chef:
 usage: main.py [-h] [-o OUTPUT] [-f] [-v] [-s] input
 
 positional arguments:
-  input                 string to convert to chef program
+    input                       string to convert to chef program
 
 optional arguments:
-  -h, --help            		show this help message and exit
-  -o OUTPUT, --output OUTPUT	set filename for generated chef program, 
-  								default is concoction.chef
-  -f, --file            		use file as input
-  -v, --verbose         		allow verbose; the script will print out
-  								what it's doing, default is False
-  -s, --seeded					allow seeded randomness; the script will
-  								use the given input string as a seed for
+    -h, --help                  show this help message and exit
+    -o OUTPUT, --output OUTPUT  set filename for generated chef program, 
+                                default is concoction.chef
+    -f, --file                  use file as input
+    -v, --verbose               allow verbose; the script will print out
+                                what it's doing, default is False
+    -s, --seeded                allow seeded randomness; the script will
+                                use the given input string as a seed for
                                 the randomization, default is False
 ```
 
