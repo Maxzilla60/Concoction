@@ -9,5 +9,6 @@ Todo:
   ✔ Optional random seed @done()
   ☐ Check empty input
   ☐ Also get dry ingredients into the mix!
+  ☐ Support for more characters in ingredients.py
   ☐ Support newline characters
     ☐ Read all lines of file
