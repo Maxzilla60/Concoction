@@ -56,4 +56,6 @@ Obviously, do **not** attempt to create and drink the generated concoctions! :wo
 - [x] Random recipe title
 - [x] Also get dry ingredients into the mix!
 - [x] Support files as input
+- [ ] More ASCII characters
+- [ ] Unit tests
 - [ ] Fix web version
