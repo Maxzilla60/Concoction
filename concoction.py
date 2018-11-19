@@ -16,7 +16,7 @@ class Concoction:
         if self.verbose:
             print("Reading input file...")
         try:
-            return ''.join(open(input_filename, "r").readlines())
+            return open(input_filename, "r").read()
         except IOError:
             print("Could not read file: " + input_filename)
             sys.exit()
@@ -57,8 +57,8 @@ class Concoction:
         if self.verbose:
             print("Writing ingredients...")
         ingredients_string = "" # string to return
-        items = list(self.ingredients.items())  # Convert ingredients to list
-        random.shuffle(items)  # Shuffle the list
+        items = list(self.ingredients.items())
+        random.shuffle(items)
         # Go through the ingredients and write out respective ingredient items:
         for key, value in items:
             # "[ASCII value] [random measure] [ingredient name]"
@@ -68,7 +68,7 @@ class Concoction:
     def generate_method(self):
         if self.verbose:
             print("Writing method...")
-        method_string = "" # string to return
+        method_string = ""
         reversed_input_string = self.input_string[::-1]  # Reverse input
         # Go through the characters of input text and write out respective methods:
         for c in reversed_input_string:
