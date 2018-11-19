@@ -1,4 +1,4 @@
-import argparse, random, sys
+import argparse, random, sys, logging
 from ingredients import ingredients_dictionary
 
 
@@ -13,12 +13,11 @@ class Concoction:
             self.input_string = input_string
 
     def get_input_fromfile(self, input_filename):
-        if self.verbose:
-            print("Reading input file...")
+        logging.info("Reading input file...")
         try:
             return open(input_filename, "r").read()
         except IOError:
-            print("Could not read file: " + input_filename)
+            logging.error("Could not read file: " + input_filename)
             sys.exit()
 
     def generate_chefrecipe(self):
@@ -41,8 +40,7 @@ class Concoction:
             self.ingredients[c] = { 'name': ingredients_dictionary[c], 'measure': random.choice(measures) }
 
     def get_recipetitle(self):
-        if self.verbose:
-            print("Naming concoction...")
+        logging.info("Naming concoction...")
         # Easter Egg: when the input is just whitespace:
         if self.input_string.isspace():
             return "Bowl of Nothing"
@@ -54,8 +52,7 @@ class Concoction:
         return "" + random.choice(title_prefixes) + " " + random.choice(title_suffixes)
 
     def generate_ingredients(self):
-        if self.verbose:
-            print("Writing ingredients...")
+        logging.info("Writing ingredients...")
         ingredients_string = "" # string to return
         items = list(self.ingredients.items())
         random.shuffle(items)
@@ -66,8 +63,7 @@ class Concoction:
         return ingredients_string
 
     def generate_method(self):
-        if self.verbose:
-            print("Writing method...")
+        logging.info("Writing method...")
         method_string = ""
         reversed_input_string = self.input_string[::-1]  # Reverse input
         # Go through the characters of input text and write out respective methods:
@@ -103,20 +99,27 @@ def parse_args():
     parser.add_argument("-s", "--seeded", action="store_true", help="allow seeded randomness; the script will use the given input string as a seed for the randomization, default is False")
     return parser.parse_args()
 
+def configureLogging(verbose=False):
+    if verbose:
+        logging.basicConfig(format="%(message)s", level=logging.INFO)
+    else:
+        logging.basicConfig(format="%(message)s")
+
 def write_file(output_filename, file_content, verbose=False):
     if verbose:
-        print("Writing out file...")
+        logging.info("Writing out file...")
     try:
         recipe = open(output_filename, "w+")
         recipe.write(file_content)
         recipe.close()
     except IOError:
-        print("Could not write file: " + output_filename)
+        logging.error("Could not write file: " + output_filename)
         sys.exit()
     if verbose:
-        print("Done!")
+        logging.info("Done, bon appetit!")
 
 args = parse_args()
+configureLogging(args.verbose)
 my_concoction = Concoction(args.input, verbose=args.verbose, seeded=args.seeded, from_file=args.file)
 write_file(args.output, my_concoction.generate_chefrecipe(), verbose=args.verbose)
 print(args.output)
