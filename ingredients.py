@@ -24,7 +24,7 @@ ingredients_dictionary = {
 	'1' : 'Coca-Cola', #
 	'2' : 'Pepsi', #
 	'3' : 'Mountain Dew', #
-	'4' : 'Dr. Pepper', #
+	'4' : 'Dr Pepper', #
 	'5' : 'Sprite', #
 	'6' : 'Fanta', #
 	'7' : '7Up', #
